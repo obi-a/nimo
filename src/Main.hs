@@ -1,26 +1,15 @@
 module Main where
 
+import NimoWorker
 import Job
-import Data.Text (Text)
-
-{-}
-taskList :: [TaskRecord]
-taskList =
-	[(Task "printAge" printAge "prints age of client")
-  ,(Task "printSalary" printSalary "prints salary of client")
-	]
--}
-data Client = Client { name :: Text, age :: Int, salary :: Double } deriving Show
-
-
-
-printAge a b = print $ a + b
-
-
-printSalary a b = print $ a * b
+import Person
+import Contact
 
 main :: IO ()
 main = do
-  -- let y = Job "123" "awesome job"
-  let y = apply (+) 6 8
-  return ()
+          let x = Job "123" "obi"
+          let y = Person "obi" "akubue"
+          let z = Contact "money" "34343433443"
+          let jobQueue = [(performTask x), (performTask y), (performTask z)]
+          jobQueue !! 2
+          return ()
